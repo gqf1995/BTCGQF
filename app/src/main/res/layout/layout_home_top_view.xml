@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner_guide_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trans_240px"
+        app:banner_pageChangeDuration="1000"
+        app:banner_pointAutoPlayAble="true"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_pointDrawable="@android:color/transparent"
+        app:banner_pointTopBottomMargin="15dp"
+        app:banner_transitionEffect="alpha"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/trans_40px"
+        android:paddingRight="@dimen/trans_40px">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.fivefivelike.mybaselibrary.view.IconFontTextview
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/trans_20px"
+                android:layout_marginTop="@dimen/trans_20px"
+                android:gravity="center"
+                android:paddingLeft="@dimen/trans_5px"
+                android:paddingRight="@dimen/trans_35px"
+                android:text="@string/ic_bizhong"
+                android:textColor="@color/color_b6b6b6"
+                android:textSize="@dimen/text_trans_40px"/>
+
+            <!--<RadioGroup-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/rb_btc"-->
+            <!--android:layout_width="@dimen/trans_100px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/trans_20px"-->
+            <!--android:layout_marginLeft="@dimen/trans_40px"-->
+            <!--android:layout_marginRight="@dimen/trans_40px"-->
+            <!--android:layout_marginTop="@dimen/trans_20px"-->
+            <!--android:background="@drawable/select_home_radio"-->
+            <!--android:button="@null"-->
+            <!--android:clickable="true"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="@dimen/trans_5px"-->
+            <!--android:paddingTop="@dimen/trans_5px"-->
+            <!--android:text="BTC"-->
+            <!--android:textColor="@drawable/color_black_gary"-->
+            <!--android:textSize="@dimen/trans_22px"-->
+            <!--/>-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/rb_eth"-->
+            <!--android:layout_width="@dimen/trans_100px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/trans_20px"-->
+            <!--android:layout_marginLeft="@dimen/trans_40px"-->
+            <!--android:layout_marginRight="@dimen/trans_40px"-->
+            <!--android:layout_marginTop="@dimen/trans_20px"-->
+            <!--android:background="@drawable/select_home_radio"-->
+            <!--android:button="@null"-->
+            <!--android:clickable="true"-->
+            <!--android:gravity="center"-->
+
+            <!--android:paddingBottom="@dimen/trans_5px"-->
+            <!--android:paddingTop="@dimen/trans_5px"-->
+            <!--android:text="ETH"-->
+            <!--android:textColor="@drawable/color_black_gary"-->
+            <!--android:textSize="@dimen/trans_22px"-->
+            <!--/>-->
+            <!--</RadioGroup>-->
+            <com.gqfbtc.widget.CommonTabLayout
+                android:id="@+id/tl_8"
+                android:layout_width="@dimen/trans_300px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#00000000"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                tl:tl_iconVisible="false"
+                tl:tl_indicator_style="BLOCK"
+                tl:tl_indicator_width="@dimen/trans_100px"
+                tl:tl_textSelectColor="@color/black"
+                tl:tl_textUnselectColor="@color/color_666666"
+                tl:tl_textsize="@dimen/text_trans_22px"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/trans_1px"
+            android:background="@color/color_e5e5e5"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.fivefivelike.mybaselibrary.view.IconFontTextview
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="@dimen/trans_20px"
+                android:layout_marginTop="@dimen/trans_20px"
+                android:gravity="center"
+                android:paddingLeft="@dimen/trans_5px"
+                android:paddingRight="@dimen/trans_35px"
+                android:text="@string/ic_fenlei"
+                android:textColor="@color/color_b6b6b6"
+                android:textSize="@dimen/text_trans_40px"/>
+
+            <!--<RadioGroup-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/rb_buy"-->
+            <!--android:layout_width="@dimen/trans_100px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/trans_20px"-->
+            <!--android:layout_marginLeft="@dimen/trans_40px"-->
+            <!--android:layout_marginRight="@dimen/trans_40px"-->
+            <!--android:layout_marginTop="@dimen/trans_20px"-->
+
+            <!--android:background="@drawable/select_home_radio"-->
+            <!--android:button="@null"-->
+            <!--android:clickable="true"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="@dimen/trans_5px"-->
+            <!--android:paddingTop="@dimen/trans_5px"-->
+            <!--android:text="买币"-->
+            <!--android:textColor="@drawable/color_black_gary"-->
+            <!--android:textSize="@dimen/trans_22px"-->
+            <!--/>-->
+
+            <!--<RadioButton-->
+            <!--android:id="@+id/rb_sell"-->
+            <!--android:layout_width="@dimen/trans_100px"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginBottom="@dimen/trans_20px"-->
+            <!--android:layout_marginLeft="@dimen/trans_40px"-->
+            <!--android:layout_marginRight="@dimen/trans_40px"-->
+            <!--android:layout_marginTop="@dimen/trans_20px"-->
+            <!--android:background="@drawable/select_home_radio"-->
+            <!--android:button="@null"-->
+            <!--android:clickable="true"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="@dimen/trans_5px"-->
+            <!--android:paddingTop="@dimen/trans_5px"-->
+            <!--android:text="卖币"-->
+            <!--android:textColor="@drawable/color_black_gary"-->
+            <!--android:textSize="@dimen/trans_22px"-->
+            <!--/>-->
+            <!--</RadioGroup>-->
+            <com.gqfbtc.widget.CommonTabLayout
+                android:id="@+id/tl_9"
+                android:layout_width="@dimen/trans_300px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#00000000"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                tl:tl_iconVisible="false"
+                tl:tl_indicator_style="BLOCK"
+                tl:tl_indicator_width="@dimen/trans_100px"
+                tl:tl_textSelectColor="@color/black"
+                tl:tl_textUnselectColor="@color/color_666666"
+                tl:tl_textsize="@dimen/text_trans_22px"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/trans_20px"
+        android:background="@color/color_f5f5f5"/>
+
+
+</LinearLayout>
