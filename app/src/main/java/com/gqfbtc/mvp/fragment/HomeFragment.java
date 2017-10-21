@@ -38,7 +38,15 @@ public class HomeFragment extends BasePullFragment<HomeDelegate, HomeBinder> {
         super.bindEvenListener();
         initToolbar(new ToolbarBuilder().setTitle("交易").setShowBack(false).setSubTitle(getResources().getString(R.string.ic_jia)));
         initList();
+        viewDelegate.viewHolder.lin_top_left_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
+
+
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private ArrayList<CustomTabEntity> mTabEntitie2s = new ArrayList<>();

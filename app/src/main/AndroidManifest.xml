@@ -44,6 +44,9 @@
         <!--找回密码-->
         <activity android:name=".mvp.activity.FindPasswordActivity">
         </activity>
+        <!--成功-->
+        <activity android:name=".mvp.activity.SuccessActivity">
+        </activity>
     </application>
 
 </manifest>

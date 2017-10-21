@@ -5,6 +5,8 @@ import android.view.View;
 import com.fivefivelike.mybaselibrary.base.BaseFragment;
 import com.fivefivelike.mybaselibrary.entity.ToolbarBuilder;
 import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.gqfbtc.R;
 import com.gqfbtc.entity.TabEntity;
 import com.gqfbtc.mvp.delegate.AssetsDelegate;
 
@@ -33,7 +35,25 @@ public class AssetsFragment extends BaseFragment<AssetsDelegate> {
         }
         viewDelegate.viewHolder.tl_2.setIconVisible(false);
         viewDelegate.viewHolder.tl_2.setTabData(mTabEntities);
+        initFragment();
+        viewDelegate.viewHolder.tl_2.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                viewDelegate.showFragment(position);
+            }
 
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
+    }
+
+    private void initFragment() {
+        viewDelegate.initAddFragment(R.id.fl_root, getChildFragmentManager());
+        viewDelegate.addFragment(new AssetsBtcFragment());
+        viewDelegate.addFragment(new AssetsEthFragment());
+        viewDelegate.showFragment(0);
     }
 
     @Override

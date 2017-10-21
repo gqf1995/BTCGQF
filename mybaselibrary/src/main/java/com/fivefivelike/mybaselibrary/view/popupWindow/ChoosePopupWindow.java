@@ -58,6 +58,14 @@ public class ChoosePopupWindow extends BasePopupWindow {
         });
     }
 
+    public void setAdapter(PopupAdapter adapter) {
+        this.adapter = adapter;
+        if (recycler_view != null) {
+            recycler_view.setAdapter(adapter);
+        }
+    }
+
+
     public ChoosePopupWindow setSelectItem(String[] items) {
         list.clear();
         List<String> itemList = Arrays.asList(items);
@@ -69,7 +77,6 @@ public class ChoosePopupWindow extends BasePopupWindow {
     }
 
 
-
     class PopupAdapter extends CommonAdapter<String> {
 
         public PopupAdapter(Context context, List<String> datas) {
@@ -78,9 +85,9 @@ public class ChoosePopupWindow extends BasePopupWindow {
 
         @Override
         protected void convert(ViewHolder holder, String s, int position) {
-//            holder.setText(R.id.tv_name, s);
-//            holder.setVisible(R.id.view_line, position != mDatas.size() - 1);
+            //            holder.setText(R.id.tv_name, s);
+            //            holder.setVisible(R.id.view_line, position != mDatas.size() - 1);
         }
     }
-    
+
 }

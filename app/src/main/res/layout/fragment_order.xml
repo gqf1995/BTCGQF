@@ -8,10 +8,6 @@
 
     <include layout="@layout/include_toolbar_with_statusbar"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/trans_1px"
-        android:background="@color/color_e5e5e5"/>
 
     <include layout="@layout/public_pull_recycleview"/>
 
