@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.fivefivelike.mybaselibrary.R;
 
@@ -46,6 +47,7 @@ public class PopupBackView extends View {
 
     public PopupBackView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PopupBackView);
         arrowWidth = typedArray.getDimension(R.styleable.PopupBackView_arrowWidth, dp2px(10));
         arrowMarginLeft = typedArray.getDimension(R.styleable.PopupBackView_arrow_margin_left, 0);
@@ -55,7 +57,9 @@ public class PopupBackView extends View {
         backageColor = typedArray.getColor(R.styleable.PopupBackView_backageColor, Color.parseColor("#77000000"));
         arrowHeight = (float) Math.sqrt(Math.pow(arrowWidth, 2) - Math.pow(arrowWidth / 2, 2));
         typedArray.recycle();
+
     }
+
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

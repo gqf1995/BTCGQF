@@ -14,6 +14,8 @@ import com.gqfbtc.adapter.AdvertisingAdapter;
 import com.gqfbtc.entity.TabEntity;
 import com.gqfbtc.mvp.databinder.HomeBinder;
 import com.gqfbtc.mvp.delegate.HomeDelegate;
+import com.gqfbtc.mvp.popu.HomeLeftPopu;
+import com.gqfbtc.mvp.popu.HomeRightPopu;
 import com.gqfbtc.widget.CommonTabLayout;
 import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
 
@@ -41,11 +43,22 @@ public class HomeFragment extends BasePullFragment<HomeDelegate, HomeBinder> {
         viewDelegate.viewHolder.lin_top_left_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                initTopLeftPopu(v);
             }
         });
     }
 
+    String[] selectLeft = {"买BTC", "卖BTC", "买ETH", "卖ETH"};
+    String[] selectRight = {"挂单买BTC", "挂单卖BTC", "挂单买ETH", "挂单卖ETH"};
+    int[] selectRightIds = {R.string.ic_btc, R.string.ic_btc, R.string.ic_eth, R.string.ic_eth};
+
+    private void initTopLeftPopu(View view) {
+        HomeLeftPopu homeLeftPopu = new HomeLeftPopu(getActivity());
+        homeLeftPopu.setSelectItem(selectLeft);
+        homeLeftPopu.showAsDropDown(view);
+
+
+    }
 
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
@@ -97,6 +110,10 @@ public class HomeFragment extends BasePullFragment<HomeDelegate, HomeBinder> {
     @Override
     protected void clickRightTv() {
         super.clickRightTv();
+
+        HomeRightPopu homeRightPopu = new HomeRightPopu(getActivity());
+        homeRightPopu.setSelectItem(selectRight, selectRightIds);
+        homeRightPopu.showAsDropDown(viewDelegate.getmToolbarSubTitle());
 
     }
 
