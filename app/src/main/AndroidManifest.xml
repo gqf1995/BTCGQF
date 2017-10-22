@@ -27,7 +27,7 @@
         tools:replace="android:icon, android:theme">
         <activity android:name=".mvp.activity.MainActivity">
         </activity>
-        <!--登录-->
+        <!-- 登录 -->
         <activity android:name=".mvp.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -35,17 +35,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--注册-->
+        <!-- 注册 -->
         <activity android:name=".mvp.activity.RegisterActivity">
         </activity>
-        <!--设置用户名-->
+        <!-- 设置用户名 -->
         <activity android:name=".mvp.activity.SetUserNameActivity">
         </activity>
-        <!--找回密码-->
+        <!-- 找回密码 -->
         <activity android:name=".mvp.activity.FindPasswordActivity">
         </activity>
-        <!--成功-->
+        <!-- 成功 -->
         <activity android:name=".mvp.activity.SuccessActivity">
+        </activity>
+        <activity android:name=".mvp.activity.BuyBtcActivity">
+        </activity>
+        <activity android:name=".mvp.activity.BuyAndSellActivity">
         </activity>
     </application>
 

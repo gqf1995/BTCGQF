@@ -73,10 +73,21 @@ public abstract class BasePullDelegate extends BaseDelegate {
         }
         mWwipeRefreshLayout.setOnRefreshListener(onRefreshListener);
     }
+
     public void setColorSchemeResources(int... colorResIds) {
         if (mWwipeRefreshLayout != null) {
             mWwipeRefreshLayout.setColorSchemeResources(colorResIds);
         }
+    }
+
+    boolean isShowNoData = true;
+
+    public boolean isShowNoData() {
+        return isShowNoData;
+    }
+
+    public void setShowNoData(boolean showNoData) {
+        isShowNoData = showNoData;
     }
 
     /**
@@ -197,7 +208,9 @@ public abstract class BasePullDelegate extends BaseDelegate {
     }
 
     public void showNoData() {
-        getViewById(R.id.no_data).setVisibility(View.VISIBLE);
+        if (isShowNoData) {
+            getViewById(R.id.no_data).setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -249,11 +262,12 @@ public abstract class BasePullDelegate extends BaseDelegate {
         DOWN
     }
 
-    public  void stopRefresh(){
-        if (mWwipeRefreshLayout!=null){
+    public void stopRefresh() {
+        if (mWwipeRefreshLayout != null) {
             mWwipeRefreshLayout.setRefreshing(false);
         }
     }
+
     public SwipeRefreshLayout getWwipeRefreshLayout() {
         return mWwipeRefreshLayout;
     }

@@ -21,8 +21,8 @@ public abstract class BasePopupWindow extends PopupWindow {
         v = LayoutInflater.from(context).inflate(getLayoutId(),
                 null);
         setContentView(v);
-        setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-        setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         // 设置SelectPicPopupWindow弹出窗体可点击
         setFocusable(true);
         setOutsideTouchable(true);

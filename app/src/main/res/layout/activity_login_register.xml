@@ -408,18 +408,38 @@
             android:paddingLeft="@dimen/trans_25px"
             android:paddingTop="@dimen/trans_5px">
 
-            <CheckedTextView
-                android:id="@+id/cb_protocol"
+            <LinearLayout
+                android:id="@+id/lin_protocol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/trans_10px"
-                android:layout_marginTop="@dimen/trans_10px"
-                android:paddingBottom="@dimen/trans_20px"
-                android:paddingTop="@dimen/trans_20px"
-                android:text="已阅读并同意"
-                android:textColor="@color/color_999999"
-                android:textSize="@dimen/text_trans_24px"
-                />
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cb_check"
+                    android:layout_width="@dimen/trans_24px"
+                    android:layout_height="@dimen/trans_24px"
+                    android:button="@null"
+                    android:clickable="false"
+                    android:background="@drawable/select_check_forms"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/trans_10px"
+                    android:layout_marginTop="@dimen/trans_10px"
+                    android:clickable="false"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="@dimen/trans_20px"
+                    android:paddingLeft="@dimen/trans_10px"
+                    android:paddingTop="@dimen/trans_20px"
+                    android:text="已阅读并同意"
+                    android:textColor="@color/color_999999"
+                    android:textSize="@dimen/text_trans_24px"/>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tv_protocol"
@@ -439,6 +459,7 @@
 
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/lin_other"
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.gqfbtc.mvp.fragment;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -11,7 +12,9 @@ import com.fivefivelike.mybaselibrary.entity.ToolbarBuilder;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.gqfbtc.R;
 import com.gqfbtc.adapter.AdvertisingAdapter;
+import com.gqfbtc.callback.PopuListOnItemClick;
 import com.gqfbtc.entity.TabEntity;
+import com.gqfbtc.mvp.activity.BuyBtcActivity;
 import com.gqfbtc.mvp.databinder.HomeBinder;
 import com.gqfbtc.mvp.delegate.HomeDelegate;
 import com.gqfbtc.mvp.popu.HomeLeftPopu;
@@ -114,7 +117,12 @@ public class HomeFragment extends BasePullFragment<HomeDelegate, HomeBinder> {
         HomeRightPopu homeRightPopu = new HomeRightPopu(getActivity());
         homeRightPopu.setSelectItem(selectRight, selectRightIds);
         homeRightPopu.showAsDropDown(viewDelegate.getmToolbarSubTitle());
-
+        homeRightPopu.setPopuListOnItemClick(new PopuListOnItemClick() {
+            @Override
+            public void onItemClick(int position) {
+                startActivity(new Intent(getActivity(), BuyBtcActivity.class));
+            }
+        });
     }
 
     @Override

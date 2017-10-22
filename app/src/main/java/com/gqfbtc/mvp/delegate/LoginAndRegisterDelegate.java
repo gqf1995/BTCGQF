@@ -4,6 +4,7 @@ import android.text.Html;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -53,7 +54,12 @@ public class LoginAndRegisterDelegate extends BaseDelegate {
         viewHolder.et_register_phone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
         viewHolder.et_register_password.setFilters(new InputFilter[]{new InputFilter.LengthFilter(16)});
 
-
+        viewHolder.lin_protocol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.cb_check.toggle();
+            }
+        });
         viewHolder.tv_register_show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,7 +105,6 @@ public class LoginAndRegisterDelegate extends BaseDelegate {
 
     public static class ViewHolder {
         public View rootView;
-        public LinearLayout layout_title_bar;
         public EditText et_login_phone;
         public EditText et_login_password;
         public IconFontTextview tv_login_show;
@@ -110,6 +115,9 @@ public class LoginAndRegisterDelegate extends BaseDelegate {
         public TextView tv_register_get_code;
         public EditText et_register_password;
         public IconFontTextview tv_register_show;
+        public CheckBox cb_check;
+        public LinearLayout lin_protocol;
+        public TextView tv_protocol;
         public LinearLayout lin_register;
         public TextView tv_other_toast;
         public TextView tv_ettitle;
@@ -124,7 +132,6 @@ public class LoginAndRegisterDelegate extends BaseDelegate {
 
         public ViewHolder(View rootView) {
             this.rootView = rootView;
-            this.layout_title_bar = (LinearLayout) rootView.findViewById(R.id.layout_title_bar);
             this.et_login_phone = (EditText) rootView.findViewById(R.id.et_login_phone);
             this.et_login_password = (EditText) rootView.findViewById(R.id.et_login_password);
             this.tv_login_show = (IconFontTextview) rootView.findViewById(R.id.tv_login_show);
@@ -135,6 +142,9 @@ public class LoginAndRegisterDelegate extends BaseDelegate {
             this.tv_register_get_code = (TextView) rootView.findViewById(R.id.tv_register_get_code);
             this.et_register_password = (EditText) rootView.findViewById(R.id.et_register_password);
             this.tv_register_show = (IconFontTextview) rootView.findViewById(R.id.tv_register_show);
+            this.cb_check = (CheckBox) rootView.findViewById(R.id.cb_check);
+            this.lin_protocol = (LinearLayout) rootView.findViewById(R.id.lin_protocol);
+            this.tv_protocol = (TextView) rootView.findViewById(R.id.tv_protocol);
             this.lin_register = (LinearLayout) rootView.findViewById(R.id.lin_register);
             this.tv_other_toast = (TextView) rootView.findViewById(R.id.tv_other_toast);
             this.tv_ettitle = (TextView) rootView.findViewById(R.id.tv_ettitle);
