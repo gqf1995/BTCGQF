@@ -3,23 +3,24 @@ package com.gqfbtc.mvp.activity;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.TextView;
 
 import com.fivefivelike.mybaselibrary.base.BasePullActivity;
 import com.fivefivelike.mybaselibrary.entity.ToolbarBuilder;
 import com.gqfbtc.R;
-import com.gqfbtc.adapter.MessageAdapter;
+import com.gqfbtc.adapter.MyAddressAdapter;
 import com.gqfbtc.mvp.databinder.BaseActivityPullBinder;
 import com.gqfbtc.mvp.delegate.BaseActivityPullDelegate;
-import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class BuyAndSellActivity extends BasePullActivity<BaseActivityPullDelegate, BaseActivityPullBinder> {
+public class MyAddressActivity extends BasePullActivity<BaseActivityPullDelegate, BaseActivityPullBinder> {
+
+
     List<String> defDatas;
-    HeaderAndFooterWrapper adapter;
-    MessageAdapter messageAdapter;
+    MyAddressAdapter adapter;
 
     @Override
     protected Class<BaseActivityPullDelegate> getDelegateClass() {
@@ -29,13 +30,17 @@ public class BuyAndSellActivity extends BasePullActivity<BaseActivityPullDelegat
     @Override
     protected void bindEvenListener() {
         super.bindEvenListener();
-        initToolbar(new ToolbarBuilder().setTitle("买BTC").setSubTitle("帮助"));
+        initToolbar(new ToolbarBuilder().setTitle("收货地址管理").setSubTitle("帮助"));
+        addFootView();
         initList();
     }
 
-    public View initTopView() {
-        View view = getLayoutInflater().inflate(R.layout.layout_buy_and_sell, null);
-        return view;
+    private void addFootView() {
+        View view = getLayoutInflater().inflate(R.layout.layout_bottom_commit, null);
+        TextView tv_commit = (TextView) view.findViewById(R.id.tv_commit);
+
+        viewDelegate.viewHolder.lin_pull.addView(view);
+
     }
 
     private void initList() {
@@ -44,12 +49,10 @@ public class BuyAndSellActivity extends BasePullActivity<BaseActivityPullDelegat
         for (int i = 0; i < 20; i++) {
             defDatas.add("");
         }
-        messageAdapter = new MessageAdapter(this, defDatas);
-        adapter = new HeaderAndFooterWrapper(messageAdapter);
-        adapter.addHeaderView(initTopView());
+        adapter = new MyAddressAdapter(this, defDatas);
         initRecycleViewPull(adapter, new LinearLayoutManager(this));
+        viewDelegate.setIsLoadMore(false);
     }
-
 
     @Override
     public BaseActivityPullBinder getDataBinder(BaseActivityPullDelegate viewDelegate) {

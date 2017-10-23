@@ -1,5 +1,6 @@
 package com.gqfbtc.mvp.fragment;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import com.fivefivelike.mybaselibrary.base.BasePullFragment;
 import com.gqfbtc.R;
 import com.gqfbtc.adapter.RecordAdapter;
+import com.gqfbtc.mvp.activity.MyAddressActivity;
 import com.gqfbtc.mvp.databinder.BaseFragmentPullBinder;
 import com.gqfbtc.mvp.delegate.BaseFragentPullDelegate;
 import com.zhy.adapter.recyclerview.wrapper.HeaderAndFooterWrapper;
@@ -47,6 +49,13 @@ public class AssetsBtcWithdrawalFragment extends BasePullFragment<BaseFragentPul
 
     private View initHeaderView() {
         View view = getActivity().getLayoutInflater().inflate(R.layout.layout_withdrawal, null);
+        view.findViewById(R.id.tv_address).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MyAddressActivity.class));
+            }
+        });
+
         view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         return view;
     }
