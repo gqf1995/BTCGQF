@@ -1,62 +1,100 @@
 package com.gqfbtc.mvp.activity;
 
-import android.os.Handler;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TextView;
 
-import com.fivefivelike.mybaselibrary.base.BasePullActivity;
+import com.fivefivelike.mybaselibrary.base.BaseDataBindActivity;
 import com.fivefivelike.mybaselibrary.entity.ToolbarBuilder;
-import com.gqfbtc.R;
-import com.gqfbtc.adapter.MyAddressAdapter;
-import com.gqfbtc.mvp.databinder.BaseActivityPullBinder;
-import com.gqfbtc.mvp.delegate.BaseActivityPullDelegate;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.gqfbtc.adapter.SlidWithFragmentPagerAdapter;
+import com.gqfbtc.entity.TabEntity;
+import com.gqfbtc.mvp.databinder.MyAddressBinder;
+import com.gqfbtc.mvp.delegate.MyAddressDelegate;
+import com.gqfbtc.mvp.fragment.EthAndBtcAddressFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
-public class MyAddressActivity extends BasePullActivity<BaseActivityPullDelegate, BaseActivityPullBinder> {
+public class MyAddressActivity extends BaseDataBindActivity<MyAddressDelegate, MyAddressBinder> {
 
-
-    List<String> defDatas;
-    MyAddressAdapter adapter;
+    private String[] mTitles = {"BTC", "ETH"};
+    private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
     @Override
-    protected Class<BaseActivityPullDelegate> getDelegateClass() {
-        return BaseActivityPullDelegate.class;
+    protected Class<MyAddressDelegate> getDelegateClass() {
+        return MyAddressDelegate.class;
     }
 
     @Override
     protected void bindEvenListener() {
         super.bindEvenListener();
-        initToolbar(new ToolbarBuilder().setTitle("收货地址管理").setSubTitle("帮助"));
-        addFootView();
-        initList();
+        initToolbar(new ToolbarBuilder().setTitle("").setSubTitle("帮助"));
+        viewDelegate.getmToolbarTitle().setVisibility(View.GONE);
+        initTitle();
+        viewDelegate.viewHolder.tv_commit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (viewDelegate.viewHolder.tl_2.getCurrentTab() == 0) {
+                    gotoActivity(AddAddressActivity.class)
+                            .startAct();
+                } else {
+                    gotoActivity(AddCollectionAddressActivity.class)
+                            .startAct();
+                }
+            }
+        });
     }
 
-    private void addFootView() {
-        View view = getLayoutInflater().inflate(R.layout.layout_bottom_commit, null);
-        TextView tv_commit = (TextView) view.findViewById(R.id.tv_commit);
-
-        viewDelegate.viewHolder.lin_pull.addView(view);
-
-    }
-
-    private void initList() {
-        viewDelegate.setShowNoData(false);
-        defDatas = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            defDatas.add("");
+    private void initTitle() {
+        for (int i = 0; i < mTitles.length; i++) {
+            mTabEntities.add(new TabEntity(mTitles[i], 0, 0));
         }
-        adapter = new MyAddressAdapter(this, defDatas);
-        initRecycleViewPull(adapter, new LinearLayoutManager(this));
-        viewDelegate.setIsLoadMore(false);
+        viewDelegate.viewHolder.tl_2.setIconVisible(false);
+        viewDelegate.viewHolder.tl_2.setTabData(mTabEntities);
+        initFragment();
+        viewDelegate.viewHolder.tl_2.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                viewDelegate.viewHolder.vp_address.setCurrentItem(position, true);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+
+            }
+        });
+    }
+
+    private void initFragment() {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        for (int i = 0; i < mTitles.length; i++) {
+            fragments.add(new EthAndBtcAddressFragment());
+        }
+        SlidWithFragmentPagerAdapter slidWithFragmentPagerAdapter = new SlidWithFragmentPagerAdapter(getSupportFragmentManager(), mTitles, fragments);
+        viewDelegate.viewHolder.vp_address.setAdapter(slidWithFragmentPagerAdapter);
+        viewDelegate.viewHolder.vp_address.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                viewDelegate.viewHolder.tl_2.setCurrentTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
-    public BaseActivityPullBinder getDataBinder(BaseActivityPullDelegate viewDelegate) {
-        return new BaseActivityPullBinder(viewDelegate);
+    public MyAddressBinder getDataBinder(MyAddressDelegate viewDelegate) {
+        return new MyAddressBinder(viewDelegate);
     }
 
     @Override
@@ -64,17 +102,4 @@ public class MyAddressActivity extends BasePullActivity<BaseActivityPullDelegate
 
     }
 
-    @Override
-    protected void refreshData() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                List<String> list = new ArrayList<>();
-                for (int i = 0; i < 20; i++) {
-                    list.add("");
-                }
-                getDataBack(defDatas, list, adapter);
-            }
-        }, 2000);
-    }
 }

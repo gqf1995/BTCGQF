@@ -73,4 +73,7 @@ dependencies {
     compile 'com.nightonke:boommenu:2.1.1'
     //通用开关按钮 https://github.com/kyleduo/SwitchButton
     compile 'com.kyleduo.switchbutton:library:1.4.6'
+    //评分
+    compile 'com.hedgehog.ratingbar:app:1.1.2'
+
 }

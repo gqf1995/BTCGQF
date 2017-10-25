@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="@dimen/trans_40px"
+        android:paddingBottom="@dimen/trans_20px"
         android:paddingLeft="@dimen/trans_40px"
         android:paddingRight="@dimen/trans_40px"
-        android:paddingBottom="@dimen/trans_20px"
+        android:paddingTop="@dimen/trans_40px"
         >
 
         <LinearLayout
@@ -371,7 +371,9 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_guarantor"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/trans_20px"
+            android:paddingRight="@dimen/trans_20px"/>
 
     </LinearLayout>
 

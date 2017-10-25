@@ -16,10 +16,12 @@ import com.fivefivelike.mybaselibrary.mvp.view.IDelegate;
 
 public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
     public T viewDelegate;
+    private IntentHelper intentHelper;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        intentHelper = new IntentHelper(getActivity());
         try {
             viewDelegate = getDelegateClass().newInstance();
         } catch (java.lang.InstantiationException e) {
@@ -27,6 +29,11 @@ public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+    }
+
+    public IntentHelper gotoActivity(Class activity) {
+        intentHelper.gotoActivity(activity);
+        return intentHelper;
     }
 
     @Nullable
@@ -55,9 +62,12 @@ public abstract class FragmentPresenter<T extends IDelegate> extends Fragment {
 
     @Override
     public void onDestroy() {
+        intentHelper.clean();
         super.onDestroy();
         viewDelegate = null;
+
     }
+
     protected void bindEvenListener() {
     }
 

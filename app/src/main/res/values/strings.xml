@@ -55,6 +55,25 @@
     <string name="ic_star_light">&#xe77c;</string>
     <string name="ic_star_dark">&#xe644;</string>
     <string name="ic_bizhong">&#xe613;</string>
+    <string name="ic_tupian">&#xe61e;</string>
+    <string name="ic_wenben">&#xe653;</string>
+    <string name="ic_jineda">&#xe63c;</string>
+    <string name="ic_jianglimingxi">&#xe62e;</string>
+    <string name="ic_mairu">&#xe8ab;</string>
+    <string name="ic_renqun">&#xe69f;</string>
+    <string name="ic_fukuangfangshi">&#xe6d4;</string>
+    <string name="ic_maichu">&#xe69c;</string>
+    <string name="ic_time1">&#xe6a1;</string>
+    <string name="ic_time2">&#xe629;</string>
+    <string name="ic_tongji">&#xe651;</string>
+    <string name="ic_lianjie">&#xe6a0;</string>
+    <string name="ic_zichanjianshe">&#xe635;</string>
+    <string name="list_type_index7">&#xe61c;</string>
+    <string name="list_type_index8">&#xe61d;</string>
+    <string name="list_type_index6">&#xe61f;</string>
+    <string name="list_type_index9">&#xe621;</string>
+    <string name="list_type_index5">&#xe625;</string>
+    <string name="list_type_index10">&#xe626;</string>
 
 
 </resources>

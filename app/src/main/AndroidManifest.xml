@@ -53,6 +53,14 @@
         </activity>
         <activity android:name=".mvp.activity.MyAddressActivity">
         </activity>
+        <activity android:name=".mvp.activity.AddAddressActivity">
+        </activity>
+        <activity android:name=".mvp.activity.AdvertisingBuyAndSellActivity">
+        </activity>
+        <activity android:name=".mvp.activity.TransactAppraiseActivity">
+        </activity>
+        <activity android:name=".mvp.activity.AddCollectionAddressActivity">
+        </activity>
     </application>
 
 </manifest>

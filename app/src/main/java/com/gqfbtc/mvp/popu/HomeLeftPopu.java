@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.fivefivelike.mybaselibrary.view.popupWindow.BasePopupWindow;
 import com.gqfbtc.R;
 import com.gqfbtc.adapter.HomeLSelectAdapter;
+import com.gqfbtc.callback.PopuListOnItemClick;
 import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class HomeLeftPopu extends BasePopupWindow {
     private RecyclerView recycler_view;
     private List<String> list;
     private HomeLSelectAdapter adapter;
-
+    PopuListOnItemClick popuListOnItemClick;
     public HomeLeftPopu(Context context) {
         super(context);
     }
@@ -54,7 +55,9 @@ public class HomeLeftPopu extends BasePopupWindow {
             public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
 
                 adapter.setSelectPositon(adapter.getSelectPositon() == position ? -1 : position);
-
+                if (popuListOnItemClick != null) {
+                    popuListOnItemClick.onItemClick(position);
+                }
             }
 
             @Override
@@ -62,6 +65,9 @@ public class HomeLeftPopu extends BasePopupWindow {
                 return false;
             }
         });
+    }
+    public void setPopuListOnItemClick(PopuListOnItemClick popuListOnItemClick) {
+        this.popuListOnItemClick = popuListOnItemClick;
     }
 
 

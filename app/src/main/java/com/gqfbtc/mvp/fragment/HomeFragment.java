@@ -14,6 +14,7 @@ import com.gqfbtc.R;
 import com.gqfbtc.adapter.AdvertisingAdapter;
 import com.gqfbtc.callback.PopuListOnItemClick;
 import com.gqfbtc.entity.TabEntity;
+import com.gqfbtc.mvp.activity.AdvertisingBuyAndSellActivity;
 import com.gqfbtc.mvp.activity.BuyBtcActivity;
 import com.gqfbtc.mvp.databinder.HomeBinder;
 import com.gqfbtc.mvp.delegate.HomeDelegate;
@@ -59,8 +60,12 @@ public class HomeFragment extends BasePullFragment<HomeDelegate, HomeBinder> {
         HomeLeftPopu homeLeftPopu = new HomeLeftPopu(getActivity());
         homeLeftPopu.setSelectItem(selectLeft);
         homeLeftPopu.showAsDropDown(view);
-
-
+        homeLeftPopu.setPopuListOnItemClick(new PopuListOnItemClick() {
+            @Override
+            public void onItemClick(int position) {
+                gotoActivity(AdvertisingBuyAndSellActivity.class).startAct();
+            }
+        });
     }
 
 
