@@ -61,6 +61,10 @@
         </activity>
         <activity android:name=".mvp.activity.AddCollectionAddressActivity">
         </activity>
+        <activity android:name=".mvp.activity.ChangeUserSetActivity">
+        </activity>
+        <activity android:name=".mvp.activity.WaitTransactActivity">
+        </activity>
     </application>
 
 </manifest>

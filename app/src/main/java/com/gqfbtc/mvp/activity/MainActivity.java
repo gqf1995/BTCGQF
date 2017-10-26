@@ -1,6 +1,5 @@
 package com.gqfbtc.mvp.activity;
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.blankj.utilcode.util.ScreenUtils;
@@ -13,6 +12,7 @@ import com.gqfbtc.mvp.delegate.MainDelegate;
 import com.gqfbtc.mvp.fragment.AssetsFragment;
 import com.gqfbtc.mvp.fragment.HomeFragment;
 import com.gqfbtc.mvp.fragment.OrderFragment;
+import com.gqfbtc.mvp.fragment.UserFragment;
 import com.gqfbtc.widget.BoomButtom;
 
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity<MainDelegate> {
         viewDelegate.addFragment(new HomeFragment());
         viewDelegate.addFragment(new OrderFragment());
         viewDelegate.addFragment(new AssetsFragment());
-        viewDelegate.addFragment(new Fragment());
+        viewDelegate.addFragment(new UserFragment());
         viewDelegate.showFragment(0);
         loginCls = LoginActivity.class;
         doubleClickActList.add(this.getClass().getName());

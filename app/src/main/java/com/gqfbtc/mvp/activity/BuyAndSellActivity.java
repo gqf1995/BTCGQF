@@ -76,9 +76,10 @@ public class BuyAndSellActivity extends BasePullActivity<BaseActivityPullDelegat
         view.findViewById(R.id.tv_commit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoActivity(TransactAppraiseActivity.class).startAct();
+                gotoActivity(WaitTransactActivity.class).startAct();
             }
         });
+
         viewDelegate.viewHolder.lin_pull.addView(view);
     }
 
